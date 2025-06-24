@@ -45,6 +45,7 @@ function TaskItem({ task, onStatusChange, onDelete }) {
         </select>
         <button
           className="text-red-500 border-none rounded p-2"
+          style={{"background": "none" }}
           onClick={() => onDelete(task.id)}
         >
           <TrashIcon className="size-6 text-red-600" />

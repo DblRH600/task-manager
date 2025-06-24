@@ -5,7 +5,7 @@ import {
   AdjustmentsHorizontalIcon,
   FunnelIcon,
 } from "@heroicons/react/24/outline";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function TaskFilter({ onFilterChange }) {
   const [filters, setFilters] = useState({

@@ -1,66 +1,68 @@
-// Task List
-import { useState } from "react";
-import TaskItem from "../TaskItem/TaskItem";
-import TaskFilter from "../TaskFilter/TaskFilter";
-import TaskForm from "../TaskForm/TaskForm";
-import TaskStats from "../TaskStats.jsx/TaskStats";
+# Frontend Mentor - Shortly URL shortening API Challenge solution
 
-//  Static data for mockups
-const tasks = [
-  {
-    id: 1,
-    title: "task a",
-    description: "acquire the plans to the Death Star",
-    status: "completed",
-    priority: "low",
-    dueDate: "2025-06-12",
-  },
-  {
-    id: 2,
-    title: "task b",
-    description: "deliver the plans to the Alliance",
-    status: "in-progress",
-    priority: "high",
-    dueDate: "2025-06-25",
-  },
-  {
-    id: 3,
-    title: "task c",
-    description: "escape Tattooine",
-    status: "completed",
-    priority: "medium",
-    dueDate: "2025-06-06",
-  },
-  {
-    id: 4,
-    title: "task d",
-    description: "attack the Death Star",
-    status: "in-progress",
-    priority: "medium",
-    dueDate: "2025-06-30",
-  },
-  {
-    id: 5,
-    title: "task e",
-    description: "Use the Force Luke",
-    status: "pending",
-    priority: "high",
-    dueDate: "2025-06-30",
-  },
-];
+This is a solution to the [Module 9 SBA: Taskk Management Dashboard](https://ps-lms.vercel.app/curriculum/se/415/sba). 
 
-// used to interact with local storage
-const getInitialTasks = () => {
-  try {
-    const storedTasks = localStorage.getItem("tasks");
-    console.log("Loaded from localStorage:", storedTasks);
-    return storedTasks ? JSON.parse(storedTasks) : tasks;
-  } catch {
-    console.error("Failed to parse tasks from localStorage");
-    return tasks; // Fallback to default tasks if parsing fails
-  }
-};
+## Table of contents
 
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Acknowledgments](#acknowledgments)
+
+## Overview
+
+In this assessment, you will apply the skills you have developed throughout your React training to build a functional, real-world dashboard application. This project will test your understanding of React components, state management, TypeScript integration, form handling, and component composition.
+
+You will create a **Task Management Dashboard** using React and TypeScript. The final deliverable will include a GitHub repository with your project and a written reflection on your approach and the challenges you faced.
+
+### The challenge
+
+Project Planning
+- [ ] Review requirements and define implementation strategy
+- [ ] Outline components, state management, and TypeScript interfaces
+- [ ] Plan form validation, state updates, and component communication
+
+Component Planning
+- [ ] Design component hierarchy and communication flow
+- [ ] Plan filtering and sorting functionality
+
+
+### Screenshot
+
+![](./src/assets/images/solution_sg_1.jpg)
+
+![](./src/assets/images/solution_sg_2.jpg)
+
+### Links
+
+- Solution URL: [GitHub: task-manager](https://github.com/DblRH600/task-manager)
+- Live Site URL: []()
+
+## My process
+
+### Built with
+
+- React
+- Vite
+- Tailwinds
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+
+### What I learned
+
+This SBA tested and demonstrated the process of **rendering lists**, working with **useState** (State Management Properties) and **component connections**.
+
+Code Snippet:
+
+```jsx TaskList
 function TaskList() {
   //   State variables for dynamic functions
   const [tasksState, setTasksState] = useState(getInitialTasks());
@@ -80,7 +82,6 @@ function TaskList() {
   //   Used for handling Add task function
   //   This function is called from the TaskForm component
   const handleAddTask = (newTask) => {
-    // setTasksState((prev) => [...prev, newTask]);
     const updatedTasks = [...tasksState, { ...newTask, id: Date.now() }];
     setTasksState(updatedTasks);
     updateStorage(updatedTasks);
@@ -116,7 +117,6 @@ function TaskList() {
     .filter((task) => {
       const status = filters.status || "all-statuses";
       const priority = filters.priority || "all-priorities";
-      // const { status, priority } = filters;
       const matchesStatus = status === "all-statuses" || task.status === status;
       const matchesPriority =
         priority === "all-priorities" || task.priority === priority;
@@ -180,3 +180,18 @@ function TaskList() {
 }
 
 export default TaskList;
+```
+
+### Continued development
+
+I need to gain a better understanding on where the **useState** hook should be placed and when to utilize ***props*** when passing functionality between parent and component connections. 
+
+### Useful resources
+
+- [Documentation: React: useState](https://react.dev/reference/react/useState) - ***React.dev*** provides useful documentation and examples for how to use **useState** hooks.
+
+- [Documentation: tailwindcss](https://tailwindcss.com/docs/installation/using-vite) - ***tailwindscss*** was useful in helping to style the project.
+
+## Acknowledgments
+
+I want express aprpeciation to Abraham Tavarez and Colton Wright for their help with understading how **useState** should be implemented in order for its use for each **component** impacted. 

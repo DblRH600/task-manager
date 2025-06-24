@@ -1,11 +1,12 @@
 // import './App.css'
-import TaskList from "./TaskList/TaskList";
+import Dashboard from "./Dashboard/Dashboard";
 
 function App() {
 
   return (
     <>
-      <TaskList />
+
+     <Dashboard /> 
     </>
   );
 }
