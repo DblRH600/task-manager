@@ -1,4 +1,4 @@
-# Frontend Mentor - Shortly URL shortening API Challenge solution
+# React Dashboard Application
 
 This is a solution to the [Module 9 SBA: Taskk Management Dashboard](https://ps-lms.vercel.app/curriculum/se/415/sba). 
 
